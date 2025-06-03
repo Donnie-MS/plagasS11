@@ -2,22 +2,34 @@ class Plaga {
     var poblacion
     method trasmitirEnfermedades() = poblacion >= 10 && self.condicionAdicional()
     method condicionAdicional() //clase abstracta, no puede instanciarse 
-    method danio() = poblacion
+    //method danio() = poblacion
+    method efectoDeAtacar(){
+        poblacion += poblacion * 0.10
+    }
 }
 
 class Cucarachas inherits Plaga{
     var pesoPromedio
-    override method danio() = super() * 0.5
-    override method trasmitirEnfermedades() = super() && pesoPromedio // ver consgina
+    method danio() = poblacion * 0.5
+    //override method danio() = super() *o.5
+    override method trasmitirEnfermedades() = super() && pesoPromedio >= 10// ver consgina
+    //override method condicionAdiciona() = pesoPromedio >= 10
+    override method efectoDeAtacar() {
+        super()
+        pesoPromedio += 2
+    }
 }
 
 class Pulgas inherits Plaga{
-    override method danio() = super() * 2
+    method danio() = poblacion * 2
+    //override method danio() = super() * 2
 }
 class Garrapatas inherits Pulgas{
+    override method efectoDeAtacar() {poblacion += poblacion * 0.20}
 }
 class Mosquitos inherits Plaga{
-    override method danio() = super()
+    method danio() = poblacion
+    //override method danio() = super()
     override method trasmitirEnfermedades() = super() and poblacion % 3 == 0
 }
 /*
