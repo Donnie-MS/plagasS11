@@ -1,3 +1,4 @@
+
 class Plaga {
     var poblacion
     method trasmitirEnfermedades() = poblacion >= 10 && self.condicionAdicional()
