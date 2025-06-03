@@ -1,10 +1,11 @@
+import plagas.*
 //## Elementos que pueden ser atacados.
 class Hogar {
     var mugre
     const comfort
     method esBueno() = comfort >= mugre / 2
     method efectoDeAtaque(unaPlaga) {
-        mugre = unaPlaga.danio()
+        mugre += unaPlaga.danio()///mensaje y asignacion +=
     }
 }
 
